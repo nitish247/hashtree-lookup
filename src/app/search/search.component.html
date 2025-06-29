@@ -1,0 +1,34 @@
+<div class="search-container">
+    <h2>HashTree Search</h2>
+    
+    <div class="search-form">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="onSearch()"
+        placeholder="Enter search term..."
+        class="search-input"
+      />
+      <button 
+        (click)="onSearch()"
+        [disabled]="!searchTerm.trim() || isLoading"
+        class="search-button"
+      >
+        Search
+      </button>
+    </div>
+  
+    <div class="results-container" *ngIf="results.length > 0">
+      <h3>Results:</h3>
+      <ul class="results-list">
+        <li *ngFor="let result of results" class="result-item">
+          <span class="key">{{result.key}}</span>: 
+          <span class="value">{{result.value}}</span>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="no-results" *ngIf="searchTerm && results.length === 0 && !isLoading">
+      No results found for "{{searchTerm}}"
+    </div>
+  </div>
