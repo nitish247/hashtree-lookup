@@ -32,7 +32,7 @@ export class HashTreeService {
 
       if (data) {
         data.forEach(pair => {
-          this.hashTree.addToHashTree(pair);
+          this.hashTree.addToTree(pair);
         });
         console.log('Initial data loaded successfully');
       }
@@ -64,7 +64,7 @@ export class HashTreeService {
     ];
     
     sampleData.forEach(pair => {
-      this.hashTree.addToHashTree(pair);
+      this.hashTree.addToTree(pair);
     });
     console.log('Fallback data loaded');
   }
